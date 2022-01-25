@@ -16,7 +16,7 @@ const MyApp = ({ Component, pageProps }) => {
       <ChakraProvider theme={theme}>
         <ColorModeScript initialColorMode={theme.config.initialColorMode} />
         <Navbar />
-        <Container maxW="container.lg">
+        <Container maxW="container.lg" paddingTop="1.5rem">
           <Component {...pageProps} />
         </Container>
       </ChakraProvider>

@@ -5,7 +5,7 @@ import { GlobalDataContext } from "context/GlobalData";
 import Head from "next/head";
 const BlogHomePage = () => {
   const { pageTitle, setPageTitle } = React.useContext(GlobalDataContext);
-  React.useLayoutEffect(() => {
+  React.useEffect(() => {
     setPageTitle("@JE | Blogs");
   }, []);
   return (

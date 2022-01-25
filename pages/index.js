@@ -6,7 +6,7 @@ import Head from "next/head";
 import style from "styles/main.module.scss";
 const HomePage = () => {
   const { pageTitle, setPageTitle } = React.useContext(GlobalDataContext);
-  React.useLayoutEffect(() => {
+  React.useEffect(() => {
     setPageTitle("@JE | Home");
   }, []);
   return (

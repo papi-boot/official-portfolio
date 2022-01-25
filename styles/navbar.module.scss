@@ -1,3 +1,4 @@
+@use "root" as root;
 .navbar-wrapper {
   padding: 1rem;
   width: 100%;
@@ -21,6 +22,9 @@
   list-style-type: none;
 }
 .navlink-is-active {
-  color: #ff0000;
-  font-weight: 700;
+  background-color: root.$primary-color;
+  border-radius: .5rem;
+  color: root.$white;
+  font-weight: bold;
+  padding: .4rem;
 }

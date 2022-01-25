@@ -3,19 +3,19 @@
 import React, { Fragment } from "react";
 import { GlobalDataContext } from "context/GlobalData";
 import Head from "next/head";
-const ProjectHomePage = () => {
+const AboutMePage = () => {
   const {pageTitle, setPageTitle} = React.useContext(GlobalDataContext);
   React.useEffect(() => {
-    setPageTitle("@JE | Projects");
+    setPageTitle("@JE | About me")
   }, [])
   return (
     <Fragment>
       <Head>
         <title>{pageTitle}</title>
       </Head>
-      <h4>Project HomePage here</h4>
+      <h4>About me</h4>
     </Fragment>
   );
 };
 
-export default ProjectHomePage;
+export default AboutMePage;
