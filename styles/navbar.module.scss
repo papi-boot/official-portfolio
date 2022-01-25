@@ -1,0 +1,26 @@
+.navbar-wrapper {
+  padding: 1rem;
+  width: 100%;
+}
+
+.main-navbar {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar-logo {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.navbar-ul {
+  align-items: center;
+  display: flex;
+  gap: 1rem;
+  list-style-type: none;
+}
+.navlink-is-active {
+  color: #ff0000;
+  font-weight: 700;
+}
