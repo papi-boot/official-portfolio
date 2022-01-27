@@ -4,10 +4,11 @@ import React, { Fragment } from "react";
 import { GlobalDataContext } from "context/GlobalData";
 import { useSelector } from "react-redux";
 import { Heading } from "@chakra-ui/react";
+import BlogList from "component/blog/BlogList";
 import Head from "next/head";
 
-export const getStaticProps = async () => {
-  const res = await fetch("https://je-cms-portfolio-api.herokuapp.com/blog");
+export async function getStaticProps() {
+  const res = await fetch("https://je-cms-portfolio-api.herokuapp.com/blog", { method: "GET" });
   const blogs = await res.json();
 
   return {
@@ -15,7 +16,7 @@ export const getStaticProps = async () => {
       blogs,
     },
   };
-};
+}
 
 const BlogHomePage = ({ blogs }) => {
   const { pageTitle, setPageTitle } = React.useContext(GlobalDataContext);
@@ -32,9 +33,7 @@ const BlogHomePage = ({ blogs }) => {
         Blogs
       </Heading>
       <div>
-        {blogs.blogs.map((item) => (
-          <li key={item.blog_id}>{item.blog_title}</li>
-        ))}
+        <BlogList blogs={blogs} />
       </div>
     </Fragment>
   );

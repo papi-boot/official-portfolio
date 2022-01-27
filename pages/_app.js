@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import { theme } from "context/theme";
 import { store } from "context/store";
 import GlobalDataProvider from "context/GlobalData";
-import Navbar from "component/Navbar";
+import Navbar from "component/global/Navbar";
 import "@fontsource/plus-jakarta-sans/200.css";
 import "@fontsource/plus-jakarta-sans/300.css";
 import "@fontsource/plus-jakarta-sans/400.css";

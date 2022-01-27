@@ -1,0 +1,38 @@
+@use "root" as root;
+.blog-container {
+  background-image: linear-gradient(to right, rgb(49, 130, 206), rgb(106, 168, 226));
+  border-radius: 0.5rem;
+  box-shadow: 3px 5px 20px rgba(26, 26, 26, 0.5);
+  cursor: pointer;
+  display: flex;
+  margin: 3rem 0;
+  overflow: hidden;
+  transition: .2s ease-in all;
+  width: 100%;
+
+  > .blog-thumbnail {
+    height: 100%;
+    overflow: hidden;
+    width: 23rem;
+  }
+
+  > .blog-info-wrapper {
+    color: #fff;
+    padding: 1rem;
+    width: max-content;
+  }
+
+  &:hover {
+    transform: translate(5px, -10px);
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .blog-container {
+    flex-wrap: wrap;
+    flex-direction: unset !important;
+    > .blog-thumbnail {
+      width: 100%;
+    }
+  }
+}

@@ -16,13 +16,20 @@ const Navbar = () => {
   ]);
   return (
     <Fragment>
-      <header>
+      <header
+        style={{
+          backgroundColor: colorMode === "light" ? "#fff" : "#1a202c",
+          position: "sticky",
+          top: "0",
+          zIndex: "1",
+        }}
+      >
         <div className={navStyle["navbar-wrapper"]}>
           <Container maxW="container.lg">
             <nav className={navStyle["main-navbar"]}>
               <div className={navStyle["navbar-logo"]}>
                 <NextLink href="/">
-                  <h4 style={{cursor: "pointer"}}>@JE</h4>
+                  <h4 style={{ cursor: "pointer" }}>@JE</h4>
                 </NextLink>
               </div>
               <div>
@@ -44,9 +51,9 @@ const Navbar = () => {
                       variant="solid"
                       icon={
                         colorMode === "light" ? (
-                          <FontAwesomeIcon icon={faMoon} />
+                          <FontAwesomeIcon size="1x" icon={faMoon} />
                         ) : (
-                          <FontAwesomeIcon icon={faSun} />
+                          <FontAwesomeIcon size="1x" icon={faSun} />
                         )
                       }
                       onClick={toggleColorMode}
