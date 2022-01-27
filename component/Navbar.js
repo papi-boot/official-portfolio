@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 import { Container, Divider, IconButton, useColorMode } from "@chakra-ui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
+import NextLink from "next/link";
 import NavLink from "./NavLink";
 import navStyle from "styles/navbar.module.scss";
 FontAwesomeIcon;
@@ -20,7 +21,9 @@ const Navbar = () => {
           <Container maxW="container.lg">
             <nav className={navStyle["main-navbar"]}>
               <div className={navStyle["navbar-logo"]}>
-                <h4>@JE</h4>
+                <NextLink href="/">
+                  <h4 style={{cursor: "pointer"}}>@JE</h4>
+                </NextLink>
               </div>
               <div>
                 <ul className={navStyle["navbar-ul"]}>
