@@ -42,12 +42,12 @@ const BlogList = ({ blogs }) => {
                 <Heading as="h1" size="2xl">
                   {item.blog_title}
                 </Heading>
-                <Text mt=".5rem" mb="1rem">
+                <Text mt=".5rem" mb="1rem" fontSize="smaller">
                   <FontAwesomeIcon icon={faClock} />
                   &nbsp;&nbsp;
                   {formatDistanceToNow(new Date(item.blog_created_at), { addSuffix: true })}
                 </Text>
-                <Text fontWeight="700" fontSize="large">
+                <Text fontWeight="700" fontSize="md">
                   <FontAwesomeIcon icon={faQuoteLeft} />
                   &nbsp;&nbsp;
                   {item.blog_description}

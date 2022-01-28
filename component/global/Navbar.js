@@ -2,10 +2,12 @@ import React, { Fragment } from "react";
 import {
   Container,
   Divider,
+  Box,
   IconButton,
   useColorMode,
   useMediaQuery,
   useDisclosure,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoon, faSun, faAngleRight, faAngleLeft } from "@fortawesome/free-solid-svg-icons";
@@ -18,6 +20,7 @@ const Navbar = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   const { isOpen, onClose, onOpen } = useDisclosure();
   const [isMobile] = useMediaQuery("(max-width: 36rem)");
+  const headerBg = useColorModeValue("#fff", "#1a202c");
   const [links, setLinks] = React.useState([
     { link_path: "", name: "Home", id: 1 },
     { link_path: "about-me", name: "About me", id: 2 },
@@ -27,12 +30,12 @@ const Navbar = () => {
   const mobileNavBtnTogglerRef = React.useRef(null);
   return (
     <Fragment>
-      <header
+      <Box
+        bg={headerBg}
         style={{
-          backgroundColor: colorMode === "light" ? "#fff" : "#1a202c",
           position: "sticky",
           top: "0",
-          zIndex: "1",
+          zIndex: "2",
         }}
       >
         <div className={navStyle["navbar-wrapper"]}>
@@ -40,7 +43,7 @@ const Navbar = () => {
             <nav className={navStyle["main-navbar"]}>
               <div className={navStyle["navbar-logo"]}>
                 <NextLink href="/">
-                  <h4 style={{ cursor: "pointer" }}>@JE</h4>
+                  <h4 style={{ cursor: "pointer", fontWeight: "800" }}>@JE</h4>
                 </NextLink>
               </div>
               <div>
@@ -95,7 +98,7 @@ const Navbar = () => {
           </Container>
         </div>
         <Divider />
-      </header>
+      </Box>
     </Fragment>
   );
 };

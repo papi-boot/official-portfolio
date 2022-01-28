@@ -2,6 +2,7 @@
 import React, { Fragment } from "react";
 import {
   Button,
+  Box,
   Drawer,
   DrawerBody,
   DrawerFooter,
@@ -14,9 +15,11 @@ import {
   Text,
 } from "@chakra-ui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
+import { faMoon, faSun, faCode } from "@fortawesome/free-solid-svg-icons";
+import { faFacebook } from "@fortawesome/free-brands-svg-icons";
 import { format } from "date-fns";
 import NavLink from "./NavLink";
+import SocialMedia from "./SocialMedia";
 import mobNavStyle from "styles/mobile.navbar.module.scss";
 
 const MobileNavbar = ({ mobileNavBtnTogglerRef, isOpen, onClose }) => {
@@ -73,10 +76,18 @@ const MobileNavbar = ({ mobileNavBtnTogglerRef, isOpen, onClose }) => {
               </div>
             </div>
           </DrawerBody>
-          <DrawerFooter>
-            <Text as="p" fontSize="sm">
-              Happy {format(new Date(), "EEEE")}&nbsp;😀
-            </Text>
+          <DrawerFooter justifyContent="center">
+            <div>
+              <SocialMedia />
+              <Text as="p" fontSize="smaller">
+                Happy {format(new Date(), "EEEE")}!&nbsp;😀•&nbsp;Made with ❤ and&nbsp;
+                <FontAwesomeIcon icon={faCode} />
+                <br />
+              </Text>
+              <Text as="p" fontSize="smaller" textAlign="center">
+                All right reserved {format(new Date(), "yyyy")}
+              </Text>
+            </div>
           </DrawerFooter>
         </DrawerContent>
       </Drawer>
