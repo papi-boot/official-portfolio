@@ -2,10 +2,11 @@ import React, { Fragment } from "react";
 export const GlobalDataContext = React.createContext();
 
 const GlobalDataProvider = (props) => {
-  const [pageTitle, setPageTitle] = React.useState("@JE | Home")
+  const [pageTitle, setPageTitle] = React.useState("@JE | Home");
+  
   const value = {
     pageTitle,
-    setPageTitle
+    setPageTitle,
   };
   return (
     <Fragment>

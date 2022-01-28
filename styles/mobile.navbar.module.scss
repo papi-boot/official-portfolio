@@ -1,0 +1,22 @@
+@use "root" as root;
+
+.mob-navbar-container {
+  width: 100%;
+}
+
+.mob-navbar-ul {
+  list-style-type: none;
+}
+
+.mob-navbar-li {
+  display: inline-block;
+  margin: 0.2rem 0;
+  padding: 0.5rem 1.5rem;
+  width: 100%;
+}
+
+.mob-navbar-active {
+  color: #fff;
+  font-weight: 700;
+  background-image: linear-gradient(to right, rgb(49, 130, 206), rgb(106, 168, 226));
+}
