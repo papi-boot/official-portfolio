@@ -16,7 +16,6 @@ import {
 } from "@chakra-ui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoon, faSun, faCode } from "@fortawesome/free-solid-svg-icons";
-import { faFacebook } from "@fortawesome/free-brands-svg-icons";
 import { format } from "date-fns";
 import NavLink from "./NavLink";
 import SocialMedia from "./SocialMedia";
@@ -68,9 +67,9 @@ const MobileNavbar = ({ mobileNavBtnTogglerRef, isOpen, onClose }) => {
                 >
                   {colorMode === "light" ? <span>Dark</span> : <span>Light</span>}&nbsp;&nbsp;
                   {colorMode === "light" ? (
-                    <FontAwesomeIcon icon={faMoon} />
+                    <FontAwesomeIcon icon="moon" width="16" />
                   ) : (
-                    <FontAwesomeIcon icon={faSun} />
+                    <FontAwesomeIcon icon="sun" width="16" />
                   )}
                 </Button>
               </div>
@@ -81,7 +80,9 @@ const MobileNavbar = ({ mobileNavBtnTogglerRef, isOpen, onClose }) => {
               <SocialMedia />
               <Text as="p" fontSize="smaller">
                 Happy {format(new Date(), "EEEE")}!&nbsp;😀•&nbsp;Made with ❤ and&nbsp;
-                <FontAwesomeIcon icon={faCode} />
+                <span style={{ display: "inline-block" }}>
+                  <FontAwesomeIcon icon="code" width="16" />
+                </span>
                 <br />
               </Text>
               <Text as="p" fontSize="smaller" textAlign="center">

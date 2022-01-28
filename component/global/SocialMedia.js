@@ -13,23 +13,23 @@ const SocialMedia = () => {
     <Fragment>
       <Box display="flex" alignContent="center" justifyContent="center" my="3" gap="1rem">
         <a href="https://www.facebook.com/Jasonevangelista.1122/" target="_blank" rel="noreferrer">
-          <FontAwesomeIcon size="lg" icon={faFacebook} />
+          <FontAwesomeIcon icon={["fab", "facebook"]} width="20" />
         </a>
         <a href="https://www.instagram.com/potato_jason/" target="_blank" rel="noreferrer">
-          <FontAwesomeIcon size="lg" icon={faInstagram} />
+          <FontAwesomeIcon icon={["fab", "instagram"]} width="20" />
         </a>
         <a href="https://twitter.com/JasonEvans1122" target="_blank" rel="noreferrer">
-          <FontAwesomeIcon size="lg" icon={faTwitter} />
+          <FontAwesomeIcon icon={["fab", "twitter"]} width="20" />
         </a>
         <a href="https://github.com/papi-boot" target="_blank" rel="noreferrer">
-          <FontAwesomeIcon size="lg" icon={faGithub} />
+          <FontAwesomeIcon icon={["fab", "github"]} width="20" />
         </a>
         <a
           href="https://www.linkedin.com/in/evangelista-jason-t-4683961b4/"
           target="_blank"
           rel="noreferrer"
         >
-          <FontAwesomeIcon size="lg" icon={faLinkedin} />
+          <FontAwesomeIcon icon={["fab", "linkedin"]} width="20" />
         </a>
       </Box>
     </Fragment>

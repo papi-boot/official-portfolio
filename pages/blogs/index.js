@@ -2,7 +2,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { Fragment } from "react";
 import { GlobalDataContext } from "context/GlobalData";
-import { useSelector } from "react-redux";
 import { Heading } from "@chakra-ui/react";
 import BlogList from "component/blog/BlogList";
 import Head from "next/head";

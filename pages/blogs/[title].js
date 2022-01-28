@@ -1,6 +1,4 @@
 /* eslint-disable @next/next/no-css-tags */
-/* eslint-disable react-hooks/rules-of-hooks */
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, { Fragment } from "react";
 import {
   Box,
@@ -12,22 +10,13 @@ import {
   Heading,
   Text,
   useMediaQuery,
-  useColorMode,
   useColorModeValue,
 } from "@chakra-ui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faCalendar,
-  faUserCircle,
-  faQuoteLeft,
-  faHome,
-  faLink,
-} from "@fortawesome/free-solid-svg-icons";
 import { format } from "date-fns";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import Script from "next/script";
 import blogPageStyle from "styles/blog.page.module.scss";
 
 // @TODO: get all blog info for each pages
@@ -51,7 +40,6 @@ export const getStaticProps = async ({ params }) => {
 };
 
 const BlogPage = ({ blog }) => {
-  const { colorMode } = useColorMode();
   const [isMobile] = useMediaQuery("(max-width: 36rem)");
   const breadcrumbBg = useColorModeValue("#fff", "#1a202c");
   return (
@@ -73,7 +61,7 @@ const BlogPage = ({ blog }) => {
           <BreadcrumbItem>
             <BreadcrumbLink as={Link} href="/blogs">
               <a>
-                <FontAwesomeIcon icon={faHome} />
+                <FontAwesomeIcon icon="home" width="16" />
               </a>
             </BreadcrumbLink>
           </BreadcrumbItem>
@@ -81,7 +69,9 @@ const BlogPage = ({ blog }) => {
             <BreadcrumbLink as={Link} href={`/blogs/${blog.blog[0].blog_title_link}`}>
               <a>
                 {blog.blog[0].blog_title_link}&nbsp;&nbsp;
-                <FontAwesomeIcon icon={faLink} />
+                <span style={{ display: "inline-block" }}>
+                  <FontAwesomeIcon icon="link" width="16" />
+                </span>
               </a>
             </BreadcrumbLink>
           </BreadcrumbItem>
@@ -113,17 +103,23 @@ const BlogPage = ({ blog }) => {
                   {blog.blog[0].blog_title}
                 </Heading>
                 <Text mt="1rem" fontSize="smaller">
-                  <FontAwesomeIcon icon={faCalendar} />
+                  <span style={{ display: "inline-block" }}>
+                    <FontAwesomeIcon icon="calendar" width="16" />
+                  </span>
                   &nbsp;&nbsp;
                   {format(new Date(blog.blog[0].blog_created_at), "yyyy, MMM dd @ hh:mm a, EEE")}
                 </Text>
-                <Text my="1" fontSize="smaller">
-                  <FontAwesomeIcon icon={faUserCircle} />
+                <Text mt="2" fontSize="smaller">
+                  <span style={{ display: "inline-block" }}>
+                    <FontAwesomeIcon icon="user-circle" width="16" />
+                  </span>
                   &nbsp;&nbsp;
                   {blog.blog[0].blog_author}
                 </Text>
                 <Text fontWeight={700} mt="0.5rem">
-                  <FontAwesomeIcon icon={faQuoteLeft} />
+                  <span style={{ display: "inline-block" }}>
+                    <FontAwesomeIcon icon="quote-left" width="16" />
+                  </span>
                   &nbsp;&nbsp;
                   {blog.blog[0].blog_description}
                 </Text>

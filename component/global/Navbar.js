@@ -54,7 +54,7 @@ const Navbar = () => {
                         ref={mobileNavBtnTogglerRef}
                         size="sm"
                         variant="solid"
-                        icon={<FontAwesomeIcon size="1x" icon={faAngleRight} />}
+                        icon={<FontAwesomeIcon size="1x" icon="angle-right" width="9" />}
                         onClick={onOpen}
                       />
                     </div>
@@ -83,9 +83,9 @@ const Navbar = () => {
                         variant="solid"
                         icon={
                           colorMode === "light" ? (
-                            <FontAwesomeIcon size="1x" icon={faMoon} />
+                            <FontAwesomeIcon width="16" icon="moon" />
                           ) : (
-                            <FontAwesomeIcon size="1x" icon={faSun} />
+                            <FontAwesomeIcon width="16" icon="sun" />
                           )
                         }
                         onClick={toggleColorMode}

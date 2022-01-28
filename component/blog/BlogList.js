@@ -6,7 +6,6 @@ import { faClock, faQuoteLeft } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import Image from "next/image";
 import blogListStyle from "styles/blog.list.module.scss";
-import blog from "feature/blog/blog";
 
 const BlogList = ({ blogs }) => {
   const { colorMode } = useColorMode();
@@ -43,12 +42,16 @@ const BlogList = ({ blogs }) => {
                   {item.blog_title}
                 </Heading>
                 <Text mt=".5rem" mb="1rem" fontSize="smaller">
-                  <FontAwesomeIcon icon={faClock} />
+                  <span style={{ display: "inline-block" }}>
+                    <FontAwesomeIcon icon="clock" width="16" />
+                  </span>
                   &nbsp;&nbsp;
                   {formatDistanceToNow(new Date(item.blog_created_at), { addSuffix: true })}
                 </Text>
                 <Text fontWeight="700" fontSize="md">
-                  <FontAwesomeIcon icon={faQuoteLeft} />
+                  <span style={{ display: "inline-block" }}>
+                    <FontAwesomeIcon icon="quote-left" width="16" />
+                  </span>
                   &nbsp;&nbsp;
                   {item.blog_description}
                 </Text>
