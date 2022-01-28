@@ -35,6 +35,7 @@ const BlogList = ({ blogs }) => {
                   layout="responsive"
                   alt={item.blog_id}
                   src={item.blog_thumbnail_link}
+                  className={blogListStyle["blog-thumbnail-src"]}
                 />
               </div>
               <div className={blogListStyle["blog-info-wrapper"]}>

@@ -1,19 +1,30 @@
 import React, { Fragment } from "react";
-import { Container, Divider, IconButton, useColorMode } from "@chakra-ui/react";
+import {
+  Container,
+  Divider,
+  IconButton,
+  useColorMode,
+  useMediaQuery,
+  useDisclosure,
+} from "@chakra-ui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
+import { faMoon, faSun, faAngleRight, faAngleLeft } from "@fortawesome/free-solid-svg-icons";
 import NextLink from "next/link";
 import NavLink from "./NavLink";
 import navStyle from "styles/navbar.module.scss";
+import MobileNavbar from "./MobileNavbar";
 FontAwesomeIcon;
 const Navbar = () => {
   const { colorMode, toggleColorMode } = useColorMode();
+  const { isOpen, onClose, onOpen } = useDisclosure();
+  const [isMobile] = useMediaQuery("(max-width: 36rem)");
   const [links, setLinks] = React.useState([
     { link_path: "", name: "Home", id: 1 },
     { link_path: "about-me", name: "About me", id: 2 },
     { link_path: "projects", name: "Projects", id: 3 },
     { link_path: "blogs", name: "Blogs", id: 4 },
   ]);
+  const mobileNavBtnTogglerRef = React.useRef(null);
   return (
     <Fragment>
       <header
@@ -33,33 +44,52 @@ const Navbar = () => {
                 </NextLink>
               </div>
               <div>
-                <ul className={navStyle["navbar-ul"]}>
-                  {links.map((item) => (
-                    <li key={item.id}>
-                      <NavLink
-                        activeClassName={navStyle["navlink-is-active"]}
-                        href={`/${item.link_path}`}
-                        passHref
-                      >
-                        <a>{item.name}</a>
-                      </NavLink>
-                    </li>
-                  ))}
-                  <div>
-                    <IconButton
-                      size="sm"
-                      variant="solid"
-                      icon={
-                        colorMode === "light" ? (
-                          <FontAwesomeIcon size="1x" icon={faMoon} />
-                        ) : (
-                          <FontAwesomeIcon size="1x" icon={faSun} />
-                        )
-                      }
-                      onClick={toggleColorMode}
+                {isMobile ? (
+                  <Fragment>
+                    <div>
+                      <IconButton
+                        ref={mobileNavBtnTogglerRef}
+                        size="sm"
+                        variant="solid"
+                        icon={<FontAwesomeIcon size="1x" icon={faAngleRight} />}
+                        onClick={onOpen}
+                      />
+                    </div>
+                    <MobileNavbar
+                      mobileNavBtnTogglerRef={mobileNavBtnTogglerRef}
+                      isOpen={isOpen}
+                      onClose={onClose}
                     />
-                  </div>
-                </ul>
+                  </Fragment>
+                ) : (
+                  <Fragment>
+                    <ul className={navStyle["navbar-ul"]}>
+                      {links.map((item) => (
+                        <li key={item.id}>
+                          <NavLink
+                            activeClassName={navStyle["navlink-is-active"]}
+                            href={`/${item.link_path}`}
+                            passHref
+                          >
+                            <a>{item.name}</a>
+                          </NavLink>
+                        </li>
+                      ))}
+                      <IconButton
+                        size="sm"
+                        variant="solid"
+                        icon={
+                          colorMode === "light" ? (
+                            <FontAwesomeIcon size="1x" icon={faMoon} />
+                          ) : (
+                            <FontAwesomeIcon size="1x" icon={faSun} />
+                          )
+                        }
+                        onClick={toggleColorMode}
+                      />
+                    </ul>
+                  </Fragment>
+                )}
               </div>
             </nav>
           </Container>

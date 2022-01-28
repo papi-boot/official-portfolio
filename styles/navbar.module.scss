@@ -8,6 +8,7 @@
   align-items: center;
   display: flex;
   justify-content: space-between;
+
 }
 
 .navbar-logo {
@@ -20,6 +21,7 @@
   display: flex;
   gap: 1rem;
   list-style-type: none;
+
 }
 .navlink-is-active {
   background-color: root.$primary-color;
