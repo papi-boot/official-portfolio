@@ -2,11 +2,9 @@ import React, { Fragment } from "react";
 import { Box, useColorMode, Heading, Text } from "@chakra-ui/react";
 import { formatDistanceToNow } from "date-fns";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faClock, faQuoteLeft } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import Image from "next/image";
 import blogListStyle from "styles/blog.list.module.scss";
-import blog from "feature/blog/blog";
 
 const BlogList = ({ blogs }) => {
   const { colorMode } = useColorMode();
@@ -14,7 +12,7 @@ const BlogList = ({ blogs }) => {
   return (
     <Fragment>
       {blogs.blogs.map((item, index) => (
-        <Box as="div" key={item.blog_id}>
+        <article key={item.blog_id}>
           <Link href={`blogs/${item.blog_title_link}`} passHref>
             <div
               className={blogListStyle["blog-container"]}
@@ -42,20 +40,24 @@ const BlogList = ({ blogs }) => {
                 <Heading as="h1" size="2xl">
                   {item.blog_title}
                 </Heading>
-                <Text mt=".5rem" mb="1rem">
-                  <FontAwesomeIcon icon={faClock} />
+                <Text mt=".5rem" mb="1rem" fontSize="smaller">
+                  <span style={{ display: "inline-block" }}>
+                    <FontAwesomeIcon icon="clock" width="16" />
+                  </span>
                   &nbsp;&nbsp;
                   {formatDistanceToNow(new Date(item.blog_created_at), { addSuffix: true })}
                 </Text>
-                <Text fontWeight="700" fontSize="large">
-                  <FontAwesomeIcon icon={faQuoteLeft} />
+                <Text fontWeight="700" fontSize="md">
+                  <span style={{ display: "inline-block" }}>
+                    <FontAwesomeIcon icon="quote-left" width="16" />
+                  </span>
                   &nbsp;&nbsp;
                   {item.blog_description}
                 </Text>
               </div>
             </div>
           </Link>
-        </Box>
+        </article>
       ))}
     </Fragment>
   );

@@ -2,7 +2,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { Fragment } from "react";
 import { GlobalDataContext } from "context/GlobalData";
-import { useSelector } from "react-redux";
 import { Heading } from "@chakra-ui/react";
 import BlogList from "component/blog/BlogList";
 import Head from "next/head";
@@ -33,7 +32,17 @@ const BlogHomePage = ({ blogs }) => {
         Blogs
       </Heading>
       <div>
-        <BlogList blogs={blogs} />
+        {blogs.blogs.length > 0 ? (
+          <Fragment>
+            <BlogList blogs={blogs} />
+          </Fragment>
+        ) : (
+          <Fragment>
+            <Heading textAlign="center" my="3rem" as="h3" size="small" color="gray.400">
+              Making a good content 😀 , Please come back.
+            </Heading>
+          </Fragment>
+        )}
       </div>
     </Fragment>
   );
