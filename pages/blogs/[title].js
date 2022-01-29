@@ -42,13 +42,28 @@ export const getStaticProps = async ({ params }) => {
 const BlogPage = ({ blog }) => {
   const [isMobile] = useMediaQuery("(max-width: 36rem)");
   const breadcrumbBg = useColorModeValue("#fff", "#1a202c");
+  const themeColor = useColorModeValue("#fff", "#1a202c");
   return (
     <Fragment>
       <Head>
+        {/* Facebook Propoerty */}
+        <meta property="og:image" content={blog.blog[0].blog_thumbnail_link} />
+        <meta property="og:image:type" content="image/jpg" />
+        <meta property="og:image:width" content="1024" />
+        <meta property="og:image:height" content="1024" />
+        <meta
+          property="og:url"
+          content={`https://www.jason-evangelista.me/blogs/${blog.blog[0].blog_title_link}`}
+        />
+        <meta property="og:title" content={blog.blog[0].blog_title} />
+        <meta property="og:type" content="website" />
+        <meta property="og:description" content={blog.blog[0].blog_description} />
+        {/* Facebook Propoerty */}
         <title>{blog.blog[0].blog_title} | @JE</title>
         <meta name="description" content={blog.blog[0].blog_description} />
         <meta name="author" content={blog.blog[0].blog_author} />
         <meta name="keywords" content={blog.blog[0].blog_description} />
+        <meta name="theme-color" content={themeColor} />
         <link
           rel="canonical"
           href={`https://www.jason-evangelista.me/blogs/${blog.blog[0].blog_title_link}`}
@@ -128,6 +143,7 @@ const BlogPage = ({ blog }) => {
             <Divider my="5" />
             <Box
               as="div"
+              style={{ fontSize: ".9rem" }}
               className={blogPageStyle["blog-body"]}
               dangerouslySetInnerHTML={{ __html: blog.blog[0].blog_body }}
             ></Box>
