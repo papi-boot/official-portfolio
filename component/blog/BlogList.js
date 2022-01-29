@@ -2,7 +2,6 @@ import React, { Fragment } from "react";
 import { Box, useColorMode, Heading, Text } from "@chakra-ui/react";
 import { formatDistanceToNow } from "date-fns";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faClock, faQuoteLeft } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import Image from "next/image";
 import blogListStyle from "styles/blog.list.module.scss";
@@ -13,7 +12,7 @@ const BlogList = ({ blogs }) => {
   return (
     <Fragment>
       {blogs.blogs.map((item, index) => (
-        <Box as="div" key={item.blog_id}>
+        <article key={item.blog_id}>
           <Link href={`blogs/${item.blog_title_link}`} passHref>
             <div
               className={blogListStyle["blog-container"]}
@@ -58,7 +57,7 @@ const BlogList = ({ blogs }) => {
               </div>
             </div>
           </Link>
-        </Box>
+        </article>
       ))}
     </Fragment>
   );
