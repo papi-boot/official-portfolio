@@ -46,7 +46,7 @@ const BlogPage = ({ blog }) => {
   return (
     <Fragment>
       <Head>
-        {/* Facebook Propoerty */}
+        {/* Facebook Property */}
         <meta property="og:image" content={blog.blog[0].blog_thumbnail_link} />
         <meta property="og:image:type" content="image/jpg" />
         <meta property="og:image:width" content="1024" />
@@ -58,7 +58,15 @@ const BlogPage = ({ blog }) => {
         <meta property="og:title" content={blog.blog[0].blog_title} />
         <meta property="og:type" content="website" />
         <meta property="og:description" content={blog.blog[0].blog_description} />
-        {/* Facebook Propoerty */}
+        {/* Facebook Property */}
+        {/* Twitter Property */}
+        <meta property="twitter:card" content="summary" />
+        <meta
+          property="twitter:site"
+          content={`https://www.jason-evangelista.me/blogs/${blog.blog[0].blog_title_link}`}
+        />
+        <meta property="twitter:creator" content={blog.blog[0].blog_author} />
+        {/* Twitter Property */}
         <title>{blog.blog[0].blog_title} | @JE</title>
         <meta name="description" content={blog.blog[0].blog_description} />
         <meta name="author" content={blog.blog[0].blog_author} />
