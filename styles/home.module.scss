@@ -1,0 +1,42 @@
+.home-banner-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+
+  > .home-intro-container {
+    width: 100%;
+  }
+}
+
+.home-image-container {
+  height: 24rem;
+  width: 24rem;
+  .img-sz {
+    cursor: pointer;
+  }
+}
+
+.heading-bg-style {
+  background-color: hsla(333, 96%, 70%, 0.502);
+  bottom: -5px;
+  cursor: pointer;
+  height: 1.5rem;
+  left: 0;
+  right: 0;
+  transform: translateX(15px);
+  position: absolute;
+  transition: all 0.1s linear;
+  z-index: -1;
+}
+
+.heading-with-bg-style:hover > .heading-bg-style {
+  height: 2rem;
+}
+
+@media only screen and (max-width: 36rem) {
+  .home-banner-container {
+    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+    .home-image-container {
+      width: 100%;
+    }
+  }
+}

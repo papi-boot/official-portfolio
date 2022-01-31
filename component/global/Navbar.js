@@ -10,7 +10,6 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMoon, faSun, faAngleRight, faAngleLeft } from "@fortawesome/free-solid-svg-icons";
 import NextLink from "next/link";
 import NavLink from "./NavLink";
 import navStyle from "styles/navbar.module.scss";
@@ -23,7 +22,6 @@ const Navbar = () => {
   const headerBg = useColorModeValue("#fff", "#1a202c");
   const [links, setLinks] = React.useState([
     { link_path: "", name: "Home", id: 1 },
-    { link_path: "about-me", name: "About me", id: 2 },
     { link_path: "projects", name: "Projects", id: 3 },
     { link_path: "blogs", name: "Blogs", id: 4 },
   ]);
