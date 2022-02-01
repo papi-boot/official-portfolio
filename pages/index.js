@@ -15,6 +15,7 @@ import SocialMedia from "component/global/SocialMedia";
 import AboutMe from "component/about-me/AboutMe";
 import homeStyle from "styles/home.module.scss";
 import SkillsShowCase from "component/home/SkillsShowCase";
+import MessageMeForm from "component/home/MessageMeForm";
 const HomePage = () => {
   const frontImage = "/assets/jason-plain.jpg";
   const backImage = "/assets/jason-vector.jpg";
@@ -91,6 +92,8 @@ const HomePage = () => {
       <AboutMe />
       <Divider my={isMobile ? "1" : "9"} />
       <SkillsShowCase />
+      <Divider my={isMobile ? "1" : "9"} />
+      <MessageMeForm />
     </Fragment>
   );
 };

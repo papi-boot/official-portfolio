@@ -28,7 +28,14 @@ const AboutMe = () => {
           </Heading>
         </Box>
         <Box py="3">
-          <Text as="p" fontSize="lg" lineHeight={1.8} letterSpacing={.3} fontWeight={500}>
+          <Text
+            as="p"
+            fontSize="lg"
+            lineHeight={1.8}
+            letterSpacing={0.3}
+            textAlign={isMobile ? "start" : "justify"}
+            fontWeight={500}
+          >
             I am pursuing my career as a Web Developer and soon to be as Software Developer. I am
             currently completing the required degree in Technology field by taking Bachelor of
             Science in Information Technology(<strong>BSIT</strong>) at&nbsp;
@@ -39,8 +46,11 @@ const AboutMe = () => {
               rel="noreferrer"
               textDecor="underline"
             >
-              Eastern Visayas State University(<strong>EVSU</strong>)&nbsp;&nbsp;
-              <FontAwesomeIcon icon="external-link-alt" width="20" size="sm" />.
+              Eastern Visayas State University(<strong>EVSU</strong>)&nbsp;
+              <span style={{ display: "inline-block" }}>
+                <FontAwesomeIcon icon="external-link-alt" width="20" size="sm" />
+              </span>
+              .
             </Text>
             &nbsp; I code everyday and I just love to be consistent {" cuz' "} Skills takes time to
             obtain and yep, Consistency is the key.
