@@ -25,7 +25,6 @@ const MobileNavbar = ({ mobileNavBtnTogglerRef, isOpen, onClose }) => {
   const { colorMode, toggleColorMode } = useColorMode();
   const [links, setLinks] = React.useState([
     { link_path: "", name: "Home", id: 1 },
-    { link_path: "about-me", name: "About me", id: 2 },
     { link_path: "projects", name: "Projects", id: 3 },
     { link_path: "blogs", name: "Blogs", id: 4 },
   ]);
@@ -37,6 +36,7 @@ const MobileNavbar = ({ mobileNavBtnTogglerRef, isOpen, onClose }) => {
         onClose={onClose}
         finalFocusRef={mobileNavBtnTogglerRef}
         size="xs"
+        preserveScrollBarGap
       >
         <DrawerOverlay />
         <DrawerContent>
@@ -77,7 +77,7 @@ const MobileNavbar = ({ mobileNavBtnTogglerRef, isOpen, onClose }) => {
           </DrawerBody>
           <DrawerFooter justifyContent="center">
             <div>
-              <SocialMedia />
+              <SocialMedia size="lg" justifyContent="center" />
               <Text as="p" fontSize="smaller">
                 Happy {format(new Date(), "EEEE")}!&nbsp;😀•&nbsp;Made with ❤ and&nbsp;
                 <span style={{ display: "inline-block" }}>

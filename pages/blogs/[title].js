@@ -80,21 +80,21 @@ const BlogPage = ({ blog }) => {
         <script defer src="/prismjs/prism.js"></script>
       </Head>
       <Container maxW="container.lg" p={0}>
-        <Breadcrumb mb="3" className={blogPageStyle["blog-breadcrumbs"]} bg={breadcrumbBg}>
+        <Breadcrumb
+          mb="3"
+          className={blogPageStyle["blog-breadcrumbs"]}
+          bg={breadcrumbBg}
+          p=".5rem 0"
+        >
           <BreadcrumbItem>
             <BreadcrumbLink as={Link} href="/blogs">
-              <a>
-                <FontAwesomeIcon icon="home" width="16" />
-              </a>
+              <a style={{ textDecoration: "underline" }}>Blogs</a>
             </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbItem>
             <BreadcrumbLink as={Link} href={`/blogs/${blog.blog[0].blog_title_link}`}>
-              <a>
+              <a style={{ textDecoration: "underline" }}>
                 {blog.blog[0].blog_title_link}&nbsp;&nbsp;
-                <span style={{ display: "inline-block" }}>
-                  <FontAwesomeIcon icon="link" width="16" />
-                </span>
               </a>
             </BreadcrumbLink>
           </BreadcrumbItem>
@@ -125,25 +125,25 @@ const BlogPage = ({ blog }) => {
                 <Heading as="h1" fontWeight={900} size={isMobile ? "lg" : "2xl"}>
                   {blog.blog[0].blog_title}
                 </Heading>
-                <Text mt="1rem" fontSize="smaller">
+                <Text mt="1rem">
                   <span style={{ display: "inline-block" }}>
                     <FontAwesomeIcon icon="calendar" width="16" />
                   </span>
-                  &nbsp;&nbsp;
+                  &nbsp; &nbsp;&nbsp;
                   {format(new Date(blog.blog[0].blog_created_at), "yyyy, MMM dd @ hh:mm a, EEE")}
                 </Text>
-                <Text mt="2" fontSize="smaller">
+                <Text mt="2">
                   <span style={{ display: "inline-block" }}>
                     <FontAwesomeIcon icon="user-circle" width="16" />
                   </span>
-                  &nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;
                   {blog.blog[0].blog_author}
                 </Text>
                 <Text fontWeight={700} mt="0.5rem">
                   <span style={{ display: "inline-block" }}>
                     <FontAwesomeIcon icon="quote-left" width="16" />
                   </span>
-                  &nbsp;&nbsp;
+                  &nbsp; &nbsp;&nbsp;
                   {blog.blog[0].blog_description}
                 </Text>
               </div>
@@ -151,7 +151,6 @@ const BlogPage = ({ blog }) => {
             <Divider my="5" />
             <Box
               as="div"
-              style={{ fontSize: ".9rem" }}
               className={blogPageStyle["blog-body"]}
               dangerouslySetInnerHTML={{ __html: blog.blog[0].blog_body }}
             ></Box>

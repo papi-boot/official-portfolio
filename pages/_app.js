@@ -10,6 +10,7 @@ import {
   faHome,
   faLink,
   faMoon,
+  faExternalLinkAlt,
   faSun,
   faCode,
   faAngleRight,
@@ -21,6 +22,12 @@ import {
   faTwitter,
   faGithub,
   faLinkedin,
+  faJs,
+  faHtml5,
+  faCss3,
+  faSass,
+  faNode,
+  faBootstrap,
 } from "@fortawesome/free-brands-svg-icons";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import GlobalDataProvider from "context/GlobalData";
@@ -48,7 +55,14 @@ library.add(
   faGithub,
   faLinkedin,
   faClock,
-  faQuoteLeft
+  faQuoteLeft,
+  faExternalLinkAlt,
+  faJs,
+  faHtml5,
+  faCss3,
+  faSass,
+  faNode,
+  faBootstrap
 );
 const MyApp = ({ Component, pageProps }) => {
   return (
