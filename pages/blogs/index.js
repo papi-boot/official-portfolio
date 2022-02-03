@@ -4,7 +4,8 @@ import React, { Fragment } from "react";
 import { Heading } from "@chakra-ui/react";
 import BlogList from "component/blog/BlogList";
 import Head from "next/head";
-
+import BlogMetaTags from "component/meta-tags/BlogMetaTags";
+import Footer from "component/global/Footer";
 export async function getStaticProps() {
   const res = await fetch("https://je-cms-portfolio-api.herokuapp.com/blog", { method: "GET" });
   const blogs = await res.json();
@@ -20,6 +21,7 @@ const BlogHomePage = ({ blogs }) => {
   return (
     <Fragment>
       <Head>
+        <BlogMetaTags />
         <title>Jason Evangelista | Blogs</title>
         <link rel="shortcut icon" href="/jason-evangelista.png" type="image/x-icon" />
       </Head>
@@ -39,6 +41,7 @@ const BlogHomePage = ({ blogs }) => {
           </Fragment>
         )}
       </div>
+      <Footer/>
     </Fragment>
   );
 };

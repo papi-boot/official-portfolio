@@ -21,6 +21,7 @@ const MessageMeForm = () => {
   const [isMobile] = useMediaQuery("(max-width: 37rem)");
   const invertHeadingBg = useColorModeValue(0, 1);
   const toast = useToast();
+  const formRef = React.useRef(null);
   return (
     <Fragment>
       <section style={{ margin: "3rem 0" }}>
@@ -73,6 +74,7 @@ const MessageMeForm = () => {
                         position: "top",
                       });
                       setSubmitting(false);
+                      formRef.current.reset();
                     } else {
                       toast({
                         title: "Something's went wrong",
@@ -104,7 +106,7 @@ const MessageMeForm = () => {
             }}
           >
             {({ isSubmitting, errors, touched }) => (
-              <Form>
+              <Form ref={formRef}>
                 <Box display="flex" gap={4} mb="4" flexDirection={isMobile ? "column" : "row"}>
                   <FormControl isRequired isInvalid={errors.email && touched.email ? true : false}>
                     <FormLabel htmlFor="email">Email Address</FormLabel>

@@ -80,21 +80,21 @@ const BlogPage = ({ blog }) => {
         <script defer src="/prismjs/prism.js"></script>
       </Head>
       <Container maxW="container.lg" p={0}>
-        <Breadcrumb mb="3" className={blogPageStyle["blog-breadcrumbs"]} bg={breadcrumbBg}>
+        <Breadcrumb
+          mb="3"
+          className={blogPageStyle["blog-breadcrumbs"]}
+          bg={breadcrumbBg}
+          p=".5rem 0"
+        >
           <BreadcrumbItem>
             <BreadcrumbLink as={Link} href="/blogs">
-              <a>
-                <FontAwesomeIcon icon="home" width="16" />
-              </a>
+              <a style={{ textDecoration: "underline" }}>Blogs</a>
             </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbItem>
             <BreadcrumbLink as={Link} href={`/blogs/${blog.blog[0].blog_title_link}`}>
-              <a>
+              <a style={{ textDecoration: "underline" }}>
                 {blog.blog[0].blog_title_link}&nbsp;&nbsp;
-                <span style={{ display: "inline-block" }}>
-                  <FontAwesomeIcon icon="link" width="16" />
-                </span>
               </a>
             </BreadcrumbLink>
           </BreadcrumbItem>

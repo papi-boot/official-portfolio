@@ -16,6 +16,8 @@ import AboutMe from "component/about-me/AboutMe";
 import homeStyle from "styles/home.module.scss";
 import SkillsShowCase from "component/home/SkillsShowCase";
 import MessageMeForm from "component/home/MessageMeForm";
+import HomeMetaTags from "component/meta-tags/HomeMetaTags";
+import Footer from "component/global/Footer";
 const HomePage = () => {
   const frontImage = "/assets/jason-plain.jpg";
   const backImage = "/assets/jason-vector.jpg";
@@ -25,11 +27,8 @@ const HomePage = () => {
   return (
     <Fragment>
       <Head>
-        <title>Jason Evangelista | Home</title>
-        <meta
-          name="description"
-          content="Hey there!, I'm Jason Evangelista your regular person and I love technology especially when creating Web applications"
-        />
+        <HomeMetaTags />
+        <title>Jason Evangelista</title>
         <link rel="shortcut icon" href="/jason-evangelista.png" type="image/x-icon" />
       </Head>
       <section className="introduction">
@@ -94,6 +93,7 @@ const HomePage = () => {
       <SkillsShowCase />
       <Divider my={isMobile ? "1" : "9"} />
       <MessageMeForm />
+      <Footer />
     </Fragment>
   );
 };
