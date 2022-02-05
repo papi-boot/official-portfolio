@@ -18,6 +18,7 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import blogPageStyle from "styles/blog.page.module.scss";
+import Footer from "component/global/Footer";
 
 // @TODO: get all blog info for each pages
 export const getStaticPaths = async () => {
@@ -36,16 +37,20 @@ export const getStaticProps = async ({ params }) => {
     method: "GET",
   });
   const blog = await res.json();
-  return { props: { blog } };
+  return { props: { blog }, revalidate: 10 };
 };
 
 const BlogPage = ({ blog }) => {
   const [isMobile] = useMediaQuery("(max-width: 36rem)");
+  const [isTablet] = useMediaQuery("(max-width: 48rem)");
   const breadcrumbBg = useColorModeValue("#fff", "#1a202c");
   const themeColor = useColorModeValue("#fff", "#1a202c");
   return (
     <Fragment>
       <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+        <meta charSet="UTF-8" />
         {/* Facebook Property */}
         <meta property="og:image" content={blog.blog[0].blog_thumbnail_link} />
         <meta property="og:image:type" content="image/jpg" />
@@ -104,7 +109,7 @@ const BlogPage = ({ blog }) => {
           <section>
             <Box
               className={`${blogPageStyle["blog-title-thumbnail"]} ${
-                isMobile ? blogPageStyle["mobile"] : ""
+                isTablet ? blogPageStyle["mobile"] : ""
               }`}
             >
               <div
@@ -157,6 +162,7 @@ const BlogPage = ({ blog }) => {
           </section>
         </article>
       </Container>
+      <Footer />
     </Fragment>
   );
 };
