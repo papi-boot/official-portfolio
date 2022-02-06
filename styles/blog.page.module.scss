@@ -17,6 +17,10 @@
 }
 .blog-body {
   padding: 1.5rem 0;
+  > ol,
+  ul {
+    padding: 0 0 0 1.5rem;
+  }
 }
 
 .blog-breadcrumbs {
@@ -27,6 +31,12 @@
 }
 
 @media only screen and (max-width: 36rem) {
+  .blog-page-thumnail-wrapper {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 48rem) {
   .blog-page-thumnail-wrapper {
     width: 100%;
   }

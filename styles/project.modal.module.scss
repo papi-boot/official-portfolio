@@ -1,0 +1,40 @@
+@use "root" as root;
+.project-modal-img-wrapper {
+  height: 24rem;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.project-modal-info-wrapper {
+  padding: 1rem;
+  > ol,
+  ul {
+    padding: 0 0 0 1.5rem;
+  }
+}
+
+.project-body {
+  scrollbar-width: thin;
+  scroll-padding: 1;
+
+  &::-webkit-scrollbar {
+    width: 0.5rem;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #cdcdcd;
+  }
+}
+
+@media only screen and (max-width: 36rem) {
+  .project-modal-img-wrapper {
+    height: 15rem;
+  }
+}
+
+@media only screen and (max-width: 48rem) {
+  .project-modal-img-wrapper {
+    height: 20rem;
+  }
+}

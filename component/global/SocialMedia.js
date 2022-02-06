@@ -39,7 +39,7 @@ const SocialMedia = ({ size, justifyContent }) => {
           <FontAwesomeIcon icon={["fab", "github"]} width="20" size={`${size}`} />
         </a>
         <a
-          href="https://www.linkedin.com/in/evangelista-jason-t-4683961b4/"
+          href="https://www.linkedin.com/in/jason-evangelista/"
           target="_blank"
           rel="noreferrer"
           className={mobNavbarStyle["social-media-effect"]}

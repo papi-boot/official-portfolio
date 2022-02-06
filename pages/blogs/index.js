@@ -6,7 +6,8 @@ import BlogList from "component/blog/BlogList";
 import Head from "next/head";
 import BlogMetaTags from "component/meta-tags/BlogMetaTags";
 import Footer from "component/global/Footer";
-export async function getStaticProps() {
+
+export const getStaticProps = async () => {
   const res = await fetch("https://je-cms-portfolio-api.herokuapp.com/blog", { method: "GET" });
   const blogs = await res.json();
 
@@ -14,8 +15,9 @@ export async function getStaticProps() {
     props: {
       blogs,
     },
+    revalidate: 10,
   };
-}
+};
 
 const BlogHomePage = ({ blogs }) => {
   return (
@@ -25,7 +27,7 @@ const BlogHomePage = ({ blogs }) => {
         <title>Jason Evangelista | Blogs</title>
         <link rel="shortcut icon" href="/jason-evangelista.png" type="image/x-icon" />
       </Head>
-      <Heading as="h1" size="lg">
+      <Heading as="h1" size="lg" fontWeight={900}>
         Blogs
       </Heading>
       <div>
@@ -41,7 +43,7 @@ const BlogHomePage = ({ blogs }) => {
           </Fragment>
         )}
       </div>
-      <Footer/>
+      <Footer />
     </Fragment>
   );
 };
