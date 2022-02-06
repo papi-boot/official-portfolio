@@ -1,6 +1,6 @@
 export const useFetch = async (params, httpMethod, route) => {
   try {
-    const response = await fetch(`http://localhost:2222/${route}`, {
+    const response = await fetch(`https://je-cms-portfolio-api.herokuapp.com/${route}`, {
       method: httpMethod,
       mode: "cors",
       credentials: "include",
