@@ -14,14 +14,15 @@ import {
   Heading,
   Text,
   useMediaQuery,
+  Image,
 } from "@chakra-ui/react";
 import { format } from "date-fns";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Image from "next/image";
 import projectModalStyle from "styles/project.modal.module.scss";
 const ProjectModal = ({ isOpen, onClose }) => {
   const project = useSelector((state) => state.project.value);
   const [isMobile] = useMediaQuery("(max-width: 36rem)");
+
   return (
     <Fragment>
       <Modal
@@ -41,14 +42,7 @@ const ProjectModal = ({ isOpen, onClose }) => {
           <Divider />
           <ModalBody p={0} className={projectModalStyle["project-body"]}>
             <div className={projectModalStyle["project-modal-img-wrapper"]}>
-              <Image
-                src={project.project_thumbnail}
-                layout="responsive"
-                width={200}
-                height={200}
-                alt={project.project_title}
-                objectFit="cover"
-              />
+              <Image src={project.project_thumbnail} alt={project.project_title} />
             </div>
             <div style={{ padding: "1rem" }}>
               <Divider />
@@ -64,14 +58,14 @@ const ProjectModal = ({ isOpen, onClose }) => {
                     : ""}
                 </Text>
               </Box>
-              <Divider my={3}/>
+              <Divider my={3} />
               <Box mt={3}>
                 <Heading size="sm" textDecoration="underline" mb={2}>
                   Description
                 </Heading>
                 <Text>{project.project_description}</Text>
               </Box>
-              <Divider my={3}/>
+              <Divider my={3} />
               <Box mt={3}>
                 <Heading size="sm" textDecoration="underline" mb={2}>
                   About the project

@@ -1,8 +1,8 @@
 @use "root" as root;
 .project-modal-img-wrapper {
-  height: 24rem;
   overflow: hidden;
   position: relative;
+  transition: all .3s ease-in;
   width: 100%;
 }
 
@@ -35,6 +35,6 @@
 
 @media only screen and (max-width: 48rem) {
   .project-modal-img-wrapper {
-    height: 20rem;
+    height: unset;
   }
 }
