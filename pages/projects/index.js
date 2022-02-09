@@ -30,7 +30,7 @@ const ProjectHomePage = ({ projects }) => {
       <Heading as="h1" size="lg" fontWeight={900}>
         Projects
       </Heading>
-      <Text>Highlight✨ - I love creating {"api's"} from scatch using ExpressJS Framework</Text>
+      <Text>Highlight✨ - I love creating {"api's"} from scratch using ExpressJS Framework</Text>
       {projects.projects.length > 0 ? (
         <Fragment>
           <ProjectList projects={projects} />
