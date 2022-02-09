@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { Fragment } from "react";
-import { Heading } from "@chakra-ui/react";
+import { Heading, Text } from "@chakra-ui/react";
 import Head from "next/head";
 import ProjectMetaTags from "component/meta-tags/ProjectMetaTags";
 import Footer from "component/global/Footer";
@@ -30,6 +30,7 @@ const ProjectHomePage = ({ projects }) => {
       <Heading as="h1" size="lg" fontWeight={900}>
         Projects
       </Heading>
+      <Text>Highlight✨ - I love creating {"api's"} from scatch using ExpressJS Framework</Text>
       {projects.projects.length > 0 ? (
         <Fragment>
           <ProjectList projects={projects} />

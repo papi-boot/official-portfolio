@@ -13,6 +13,7 @@ import {
   Divider,
   Heading,
   Text,
+  useMediaQuery,
 } from "@chakra-ui/react";
 import { format } from "date-fns";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -20,13 +21,14 @@ import Image from "next/image";
 import projectModalStyle from "styles/project.modal.module.scss";
 const ProjectModal = ({ isOpen, onClose }) => {
   const project = useSelector((state) => state.project.value);
+  const [isMobile] = useMediaQuery("(max-width: 36rem)");
   return (
     <Fragment>
       <Modal
         onClose={onClose}
         isOpen={isOpen}
         scrollBehavior="inside"
-        size="3xl"
+        size={isMobile ? "xs" : "3xl"}
         motionPreset="scale"
         blockScrollOnMount={true}
         closeOnEsc
@@ -34,7 +36,7 @@ const ProjectModal = ({ isOpen, onClose }) => {
       >
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>{project.project_title}</ModalHeader>
+          <ModalHeader>{project.project_title}✨</ModalHeader>
           <ModalCloseButton />
           <Divider />
           <ModalBody p={0} className={projectModalStyle["project-body"]}>
@@ -62,12 +64,14 @@ const ProjectModal = ({ isOpen, onClose }) => {
                     : ""}
                 </Text>
               </Box>
+              <Divider my={3}/>
               <Box mt={3}>
                 <Heading size="sm" textDecoration="underline" mb={2}>
                   Description
                 </Heading>
                 <Text>{project.project_description}</Text>
               </Box>
+              <Divider my={3}/>
               <Box mt={3}>
                 <Heading size="sm" textDecoration="underline" mb={2}>
                   About the project
