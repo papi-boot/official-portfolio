@@ -11,11 +11,11 @@ import {
   Text,
   useMediaQuery,
   useColorModeValue,
+  Image,
 } from "@chakra-ui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { format } from "date-fns";
 import Head from "next/head";
-import Image from "next/image";
 import Link from "next/link";
 import blogPageStyle from "styles/blog.page.module.scss";
 import Footer from "component/global/Footer";
@@ -117,10 +117,9 @@ const BlogPage = ({ blog }) => {
                 style={{ height: isMobile ? "100%" : "20rem" }}
               >
                 <Image
-                  width={400}
-                  height={400}
-                  layout={isMobile ? "responsive" : "fill"}
-                  objectFit="scale-down"
+                  width="100%"
+                  height="100%"
+                  objectFit="cover"
                   alt={blog.blog[0].blog_id}
                   src={blog.blog[0].blog_thumbnail_link}
                   loading="lazy"
@@ -162,6 +161,7 @@ const BlogPage = ({ blog }) => {
           </section>
         </article>
       </Container>
+      <Divider />
       <Footer />
     </Fragment>
   );

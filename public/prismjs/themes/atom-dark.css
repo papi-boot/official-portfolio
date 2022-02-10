@@ -4,6 +4,14 @@
  * @author Joe Gibson (@gibsjose)
  */
 
+h1,h2,h3,h4,h5,h6 {
+  font-weight: 800 !important;
+}
+blockquote {
+  border-left: solid #505050 3px !important;
+  margin: .5rem !important;
+  padding-left: 1rem !important;
+}
 code[class*="language-"],
 pre[class*="language-"] {
 	color: #c5c8c6;

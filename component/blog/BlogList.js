@@ -1,9 +1,8 @@
 import React, { Fragment } from "react";
-import { Box, useColorMode, Heading, Text } from "@chakra-ui/react";
+import { Box, useColorMode, Heading, Text, Image } from "@chakra-ui/react";
 import { formatDistanceToNow } from "date-fns";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
-import Image from "next/image";
 import blogListStyle from "styles/blog.list.module.scss";
 
 const BlogList = ({ blogs }) => {
@@ -27,13 +26,13 @@ const BlogList = ({ blogs }) => {
             >
               <div className={blogListStyle["blog-thumbnail"]}>
                 <Image
-                  width={50}
-                  height={50}
+                  width="100%"
+                  height="100%"
                   objectFit="cover"
-                  layout="responsive"
                   alt={item.blog_id}
                   src={item.blog_thumbnail_link}
                   className={blogListStyle["blog-thumbnail-src"]}
+                  loading="lazy"
                 />
               </div>
               <div className={blogListStyle["blog-info-wrapper"]}>
