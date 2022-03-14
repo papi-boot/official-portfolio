@@ -19,10 +19,13 @@ import Head from "next/head";
 import Link from "next/link";
 import blogPageStyle from "styles/blog.page.module.scss";
 import Footer from "component/global/Footer";
+import GoogleAdsMetaTag from "component/meta-tags/GoogleAdsMetaTag";
 
 // @TODO: get all blog info for each pages
 export const getStaticPaths = async () => {
-  const res = await fetch("https://je-cms-portfolio-api.herokuapp.com/blog", { method: "GET" });
+  const res = await fetch("https://je-cms-portfolio-api.herokuapp.com/blog", {
+    method: "GET",
+  });
   const blogs = await res.json();
   const paths = blogs.blogs.map((item) => ({
     params: { title: item.blog_title_link },
@@ -33,9 +36,12 @@ export const getStaticPaths = async () => {
 // @TODO: get info for individual blog
 export const getStaticProps = async ({ params }) => {
   const { title } = params;
-  const res = await fetch(`https://je-cms-portfolio-api.herokuapp.com/blog/${title}`, {
-    method: "GET",
-  });
+  const res = await fetch(
+    `https://je-cms-portfolio-api.herokuapp.com/blog/${title}`,
+    {
+      method: "GET",
+    }
+  );
   const blog = await res.json();
   return { props: { blog }, revalidate: 10 };
 };
@@ -62,7 +68,10 @@ const BlogPage = ({ blog }) => {
         />
         <meta property="og:title" content={blog.blog[0].blog_title} />
         <meta property="og:type" content="website" />
-        <meta property="og:description" content={blog.blog[0].blog_description} />
+        <meta
+          property="og:description"
+          content={blog.blog[0].blog_description}
+        />
         {/* Facebook Property */}
         {/* Twitter Property */}
         <meta property="twitter:card" content="summary" />
@@ -83,6 +92,7 @@ const BlogPage = ({ blog }) => {
         />
         <link rel="stylesheet" href="/prismjs/themes/atom-dark.css" />
         <script defer src="/prismjs/prism.js"></script>
+        <GoogleAdsMetaTag />
       </Head>
       <Container maxW="container.lg" p={0}>
         <Breadcrumb
@@ -97,7 +107,10 @@ const BlogPage = ({ blog }) => {
             </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbItem>
-            <BreadcrumbLink as={Link} href={`/blogs/${blog.blog[0].blog_title_link}`}>
+            <BreadcrumbLink
+              as={Link}
+              href={`/blogs/${blog.blog[0].blog_title_link}`}
+            >
               <a style={{ textDecoration: "underline" }}>
                 {blog.blog[0].blog_title_link}&nbsp;&nbsp;
               </a>
@@ -126,7 +139,11 @@ const BlogPage = ({ blog }) => {
                 />
               </div>
               <div style={{ padding: isMobile ? "1rem 0" : "0 .9rem" }}>
-                <Heading as="h1" fontWeight={900} size={isMobile ? "lg" : "2xl"}>
+                <Heading
+                  as="h1"
+                  fontWeight={900}
+                  size={isMobile ? "lg" : "2xl"}
+                >
                   {blog.blog[0].blog_title}
                 </Heading>
                 <Text mt="1rem">
@@ -134,7 +151,10 @@ const BlogPage = ({ blog }) => {
                     <FontAwesomeIcon icon="calendar" width="16" />
                   </span>
                   &nbsp; &nbsp;&nbsp;
-                  {format(new Date(blog.blog[0].blog_created_at), "yyyy, MMM dd @ hh:mm a, EEE")}
+                  {format(
+                    new Date(blog.blog[0].blog_created_at),
+                    "yyyy, MMM dd @ hh:mm a, EEE"
+                  )}
                 </Text>
                 <Text mt="2">
                   <span style={{ display: "inline-block" }}>

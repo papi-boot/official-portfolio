@@ -6,9 +6,12 @@ import BlogList from "component/blog/BlogList";
 import Head from "next/head";
 import BlogMetaTags from "component/meta-tags/BlogMetaTags";
 import Footer from "component/global/Footer";
+import GoogleAdsMetaTag from "component/meta-tags/GoogleAdsMetaTag";
 
 export const getStaticProps = async () => {
-  const res = await fetch("https://je-cms-portfolio-api.herokuapp.com/blog", { method: "GET" });
+  const res = await fetch("https://je-cms-portfolio-api.herokuapp.com/blog", {
+    method: "GET",
+  });
   const blogs = await res.json();
 
   return {
@@ -25,7 +28,12 @@ const BlogHomePage = ({ blogs }) => {
       <Head>
         <BlogMetaTags />
         <title>Jason Evangelista | Blogs</title>
-        <link rel="shortcut icon" href="/jason-evangelista.png" type="image/x-icon" />
+        <link
+          rel="shortcut icon"
+          href="/jason-evangelista.png"
+          type="image/x-icon"
+        />
+        <GoogleAdsMetaTag />
       </Head>
       <Heading as="h1" size="lg" fontWeight={900}>
         Blogs
@@ -37,7 +45,13 @@ const BlogHomePage = ({ blogs }) => {
           </Fragment>
         ) : (
           <Fragment>
-            <Heading textAlign="center" my="3rem" as="h3" size="small" color="gray.400">
+            <Heading
+              textAlign="center"
+              my="3rem"
+              as="h3"
+              size="small"
+              color="gray.400"
+            >
               Making a good content 😀 , Please come back.
             </Heading>
           </Fragment>
