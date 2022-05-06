@@ -27,7 +27,10 @@ const SleepLessNight = () => {
           property="og:url"
           content="https://www.jason-evangelista.me/hyper-poetry/sleepless-night"
         />
-        <meta property="og:title" content="Jason Evangelista | Blogs" />
+        <meta
+          property="og:title"
+          content="Sleepless Night - Hyper Poetry | Jason Evangelista"
+        />
         <meta
           property="og:description"
           content="Sleepless Night - Hyper Poetry Web based, Present by Jason Evangelista BSIT 2A"
